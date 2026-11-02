@@ -36,9 +36,7 @@ The pipeline incorporates 5 major computer vision and biomechanical modeling upg
    - Extracted instantaneous bat angular velocity $`\omega_{\text{bat}} = d\theta/dt`$ via angular unwrapping and derivative filtering.
    - Applied true rigid-body lever-arm mechanics:
 
-     ```math
-     \vec{v}_{\text{bat}} = \vec{v}_{\text{pivot}} + \omega_{\text{bat}} r_{\text{bat}} \hat{\mathbf{n}}_{\perp} \implies \begin{cases} v_{bx} = v_x - \omega_{\text{bat}} r_{\text{bat}} \sin\theta \\ v_{by} = v_y + \omega_{\text{bat}} r_{\text{bat}} \cos\theta \end{cases}
-     ```
+     $`\displaystyle \vec{v}_{\text{bat}} = \vec{v}_{\text{pivot}} + \omega_{\text{bat}} r_{\text{bat}} \hat{\mathbf{n}}_{\perp} \implies \begin{cases} v_{bx} = v_x - \omega_{\text{bat}} r_{\text{bat}} \sin\theta \\ v_{by} = v_y + \omega_{\text{bat}} r_{\text{bat}} \cos\theta \end{cases}`$
 
    - Applied dynamic 3D optical axis foreshortening correction ($`1 / \sin\phi`$, where $`\phi \approx 50^\circ`$ during downswing), transforming 2D projected velocity ($`57.36\text{ km/h}`$) into true 3D space ($`74.87\text{ km/h}`$).
 5. **Publication-Grade Visual Diagnostics & Non-Colliding Layout**:
