@@ -24,7 +24,7 @@ The pipeline incorporates 5 major computer vision and biomechanical modeling upg
    - Maintained continuous striker bounding box ROI tracking and kinematic state continuity across Frames 22 to 71.
 2. **Broadcast Pulldown Duplicate Frame Detection**:
    - Automated detection of broadcast telecast 3:2 pulldown duplicate frames via mean inter-frame absolute grayscale difference ($\text{mean\_frame\_diff} < 1.5$).
-   - Successfully identified 14 duplicate frames across the 72-frame sequence.
+   - Successfully identified 14 duplicate frames across the full 72-frame clip, 10 of them inside the analysed shot window (Frames 22–71).
    - Diagnosed and resolved the severe Frame 57 artifact: because Frame 57 is an identical broadcast duplicate of Frame 56, raw finite-difference velocity plunges to an artificial $34.07\text{ px/s}$ ($0.88\text{ km/h}$) despite occurring at the maximum downswing momentum point.
 3. **Confidence-Gated 2D Trajectory Spline Reconstruction**:
    - Transitioned from naive 1D scalar speed smoothing to full 2D spatial coordinate reconstruction.
@@ -138,7 +138,7 @@ All spatial metrics are scaled using regulation International Cricket Council (I
 | **Peak Bat Sweet-Spot (3D Est)** | **$74.87$** ($2903.22$) | **km/h** (px/s) | **Frame 56, $1/\sin(50^\circ)$ foreshortening correction** |
 | **Lever-Arm Amplification** | **$1.70\times$** | multiplier | $\vec{v}_{\text{bat}} = \vec{v}_{\text{pivot}} + \omega_{\text{bat}} r_{\text{bat}} \hat{\mathbf{n}}_{\perp}$ ($57.36 / 33.84$) |
 | **Frame 57 Pulldown Notch** | **$34.07$** ($0.88$) | px/s (km/h) | Raw finite-diff drop caused by broadcast duplicate frame |
-| **Duplicate Frames Detected** | **14 frames** | count | $\text{mean\_frame\_diff} < 1.5$ (19.4% of clip) |
+| **Duplicate Frames Detected** | **14 frames** (10 in shot, F22–71) | count | $\text{mean\_frame\_diff} < 1.5$ (19.4% of clip) |
 
 ### Failure Mode Distribution ($72$ Frames Total)
 
