@@ -229,9 +229,7 @@ v_{\text{3D, est}} = \frac{v_{\text{observed}}}{\sin \phi}
 For Liam Livingstone's stroke—an aerial lofted drive toward long-off:
 - During the downswing into impact (Frames 54–58), the swing path travels down the pitch at an angle of approximately $`\phi \approx 50^\circ`$ relative to the camera line-of-sight ($`\sin 50^\circ \approx 0.766`$, correction factor $`\approx 1.305`$).
 
-  ```math
-  v_{\text{3D, est}} = \frac{57.36\text{ km/h}}{\sin 50^\circ} = \mathbf{74.87\text{ km/h}}
-  ```
+  $`\displaystyle v_{\text{3D, est}} = \frac{57.36\text{ km/h}}{\sin 50^\circ} = \mathbf{74.87\text{ km/h}}`$
 
 - During follow-through (Frames 59, 60, 61+), the bat wraps around the batter's shoulders into the coronal plane, increasing $`\phi \to 65^\circ, 75^\circ, 85^\circ`$, where 2D projection approaches true 3D speed.
 
@@ -285,9 +283,7 @@ At Frame 56 (Downswing peak):
 - Bat sweet-spot speed (2D): $`v_{\text{bat}} = 57.36\text{ km/h}`$ ($`2223.98\text{ px/s}`$).
 - Speed magnification ratio:
 
-  ```math
-  \mathcal{A} = \frac{v_{\text{bat}}}{v_{\text{pivot}}} = \frac{57.36}{33.84} = \mathbf{1.70\times}
-  ```
+  $`\displaystyle \mathcal{A} = \frac{v_{\text{bat}}}{v_{\text{pivot}}} = \frac{57.36}{33.84} = \mathbf{1.70\times}`$
 
 This confirms that the angular uncocking of the wrists provides an extra $`+23.5\text{ km/h}`$ of linear speed to the hitting zone over the hands alone.
 
@@ -358,9 +354,7 @@ Below, we detail four key engineering solutions to elevate tracking to sub-milli
 - **Problem**: Monocular loss of the depth vector ($`v_Z`$) introduces up to $`74\%`$ velocity attenuation for straight drives.
 - **Solution**: A synchronized two-camera setup (e.g., straight-on high-angle camera paired with a square side-on camera) enables 3D triangulation:
 
-  ```math
-  \mathbf{x}_1 = \mathbf{P}_1 \mathbf{X}, \quad \mathbf{x}_2 = \mathbf{P}_2 \mathbf{X} \implies \mathbf{X} = \text{Triangulate}(\mathbf{x}_1, \mathbf{x}_2)
-  ```
+  $`\displaystyle \mathbf{x}_1 = \mathbf{P}_1 \mathbf{X}, \quad \mathbf{x}_2 = \mathbf{P}_2 \mathbf{X} \implies \mathbf{X} = \text{Triangulate}(\mathbf{x}_1, \mathbf{x}_2)`$
 
   Triangulation resolves the full 3D Euclidean velocity vector $`\vec{v}_{\text{3D}} = [\dot{X}, \dot{Y}, \dot{Z}]`$ and completely eliminates depth foreshortening errors.
 
@@ -372,9 +366,7 @@ Below, we detail four key engineering solutions to elevate tracking to sub-milli
   - **Vision Strengths**: Drift-free absolute spatial positioning in global pitch coordinates.
   - **Synergy**: An Extended Kalman Filter (EKF) uses the $`1000\text{ Hz}`$ IMU for high-rate state propagation, while the $`30 - 120\text{ fps}`$ CV pose detections serve as zero-drift measurement updates:
 
-    ```math
-    \hat{\mathbf{x}}_k = f(\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{\text{IMU}}), \quad \mathbf{K}_k = \mathbf{P}_k \mathbf{H}^T (\mathbf{H} \mathbf{P}_k \mathbf{H}^T + \mathbf{R}_{\text{CV}})^{-1}
-    ```
+    $`\displaystyle \hat{\mathbf{x}}_k = f(\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{\text{IMU}}), \quad \mathbf{K}_k = \mathbf{P}_k \mathbf{H}^T (\mathbf{H} \mathbf{P}_k \mathbf{H}^T + \mathbf{R}_{\text{CV}})^{-1}`$
 
   This hybrid architecture achieves sub-degree swing path accuracy and sub-km/h bat speed fidelity regardless of optical occlusions.
 
