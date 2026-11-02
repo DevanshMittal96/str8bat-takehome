@@ -2,15 +2,15 @@
 # Biomechanical Kinematics, Monocular 2D-to-3D Metric Mapping, and Diagnostic Tracking Failure Analysis
 
 **Author:** Computer Vision & Biomechanics Engineering  
-**Dataset:** Broadcast Footage of Liam Livingstone Batting ([`input_video.mp4`](file:///Users/devanshmittal/Desktop/str8bat-takehome/input_video.mp4), 720×1280 @ 29.954 fps, 72 frames)  
-**Deliverables Root:** `/Users/devanshmittal/Desktop/str8bat-takehome/`  
+**Dataset:** Broadcast Footage of Liam Livingstone Batting ([`input_video.mp4`](input_video.mp4), 720×1280 @ 29.954 fps, 72 frames)  
+**Deliverables Root:** repository root  
 **Generated Artifacts:**
-- [`outputs/camera_metrics.json`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/camera_metrics.json)
-- [`outputs/swing_kinematics.csv`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/swing_kinematics.csv)
-- [`outputs/annotated_swing.mp4`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/annotated_swing.mp4)
-- [`outputs/velocity_profile_analysis.png`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/velocity_profile_analysis.png)
-- [`outputs/velocity_profile_analysis_full_video.png`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/velocity_profile_analysis_full_video.png)
-- [`outputs/failure_frames_strip.png`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/failure_frames_strip.png)
+- [`outputs/camera_metrics.json`](outputs/camera_metrics.json)
+- [`outputs/swing_kinematics.csv`](outputs/swing_kinematics.csv)
+- [`outputs/annotated_swing.mp4`](outputs/annotated_swing.mp4)
+- [`outputs/velocity_profile_analysis.png`](outputs/velocity_profile_analysis.png)
+- [`outputs/velocity_profile_analysis_full_video.png`](outputs/velocity_profile_analysis_full_video.png)
+- [`outputs/failure_frames_strip.png`](outputs/failure_frames_strip.png)
 
 ---
 
@@ -102,7 +102,7 @@ All spatial and temporal parameters were extracted directly from the video conta
 | **Peak Bat Sweet-Spot (3D Est)** | **$74.87\text{ km/h}$** ($2903.22\text{ px/s}$) | Frame 56 ($t=1.869\text{ s}$) | $1/\sin(50^\circ)$ foreshortening-corrected 3D speed |
 | **Lever-Arm Amplification Ratio** | **$1.70\times$** | Biomechanical snap | $\frac{v_{\text{bat}}}{v_{\text{pivot}}} = \frac{57.36}{33.84} = 1.695$ |
 | **Frame 57 Pulldown Notch** | **$34.07\text{ px/s}$** ($0.88\text{ km/h}$) | Frame 57 ($t=1.903\text{ s}$) | Raw finite-diff drop due to telecast duplicate frame |
-| **Duplicate Frames Detected** | **14 frames** ($19.4\%$) | Broadcast cadence | $\text{mean\_frame\_diff} < 1.5$ (e.g., F57 impact duplicate) |
+| **Duplicate Frames Detected** | **14 frames** ($19.4\%$ of clip; 10 in shot, F22–71) | Broadcast cadence | $\text{mean\_frame\_diff} < 1.5$ (e.g., F57 impact duplicate) |
 | **Nominal Inter-Wrist Grip** | $17.5 - 34.2\text{ px}$ | Ergonomic two-handed grip | Normal range in stance & downswing |
 | **Maximum Wrist Separation** | $100.1\text{ px}$ | Frame 67 ($t=2.237\text{ s}$) | Anatomical crossover during high follow-through |
 
@@ -265,7 +265,7 @@ This confirms that the angular uncocking of the wrists provides an extra $+23.5\
 
 In sports engineering, understanding where and why computer vision algorithms fail is just as critical as highlighting where they succeed. Monocular broadcast footage presents distinct breakdown regimes that must be detected and flagged automatically.
 
-The multi-panel diagnostic strip below captures these exact failure regimes in [`input_video.mp4`](file:///Users/devanshmittal/Desktop/str8bat-takehome/input_video.mp4):
+The multi-panel diagnostic strip below captures these exact failure regimes in [`input_video.mp4`](input_video.mp4):
 
 ![Failure Frames Strip](outputs/failure_frames_strip.png)
 
@@ -401,7 +401,7 @@ $ python run_pipeline.py
    • Frame 57 Pulldown  : Raw finite-diff drops to 34.07 px/s (broadcast duplicate frame notch)
 ----------------------------------------------------------------------------------------
  [4] COMPUTER VISION FAILURE REGIMES & DUPLICATE CADENCE (72 total frames):
-   • Duplicate Frames   : 14 frames (19.4%) detected via inter-frame diff (e.g. F57 impact duplicate)
+   • Duplicate Frames   : 14 frames (19.4%; 10 in shot F22-71) detected via inter-frame diff (e.g. F57 impact duplicate)
    • OCCLUSION           : 33 frames ( 45.8%)
    • PRE_SHOT_SCENE      : 22 frames ( 30.6%)
    • OK                  : 13 frames ( 18.1%)
