@@ -2,15 +2,15 @@
 # Biomechanical Kinematics, Monocular 2D-to-3D Metric Mapping, and Diagnostic Tracking Failure Analysis
 
 **Author:** Computer Vision & Biomechanics Engineering  
-**Dataset:** Broadcast Footage of Liam Livingstone Batting ([`input_video.mp4`](file:///Users/devanshmittal/Desktop/str8bat-takehome/input_video.mp4), 720×1280 @ 29.954 fps, 72 frames)  
-**Deliverables Root:** `/Users/devanshmittal/Desktop/str8bat-takehome/`  
+**Dataset:** Broadcast Footage of Liam Livingstone Batting ([`input_video.mp4`](input_video.mp4), 720×1280 @ 29.954 fps, 72 frames)  
+**Deliverables Root:** repository root  
 **Generated Artifacts:**
-- [`outputs/camera_metrics.json`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/camera_metrics.json)
-- [`outputs/swing_kinematics.csv`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/swing_kinematics.csv)
-- [`outputs/annotated_swing.mp4`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/annotated_swing.mp4)
-- [`outputs/velocity_profile_analysis.png`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/velocity_profile_analysis.png)
-- [`outputs/velocity_profile_analysis_full_video.png`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/velocity_profile_analysis_full_video.png)
-- [`outputs/failure_frames_strip.png`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/failure_frames_strip.png)
+- [`outputs/camera_metrics.json`](outputs/camera_metrics.json)
+- [`outputs/swing_kinematics.csv`](outputs/swing_kinematics.csv)
+- [`outputs/annotated_swing.mp4`](outputs/annotated_swing.mp4)
+- [`outputs/velocity_profile_analysis.png`](outputs/velocity_profile_analysis.png)
+- [`outputs/velocity_profile_analysis_full_video.png`](outputs/velocity_profile_analysis_full_video.png)
+- [`outputs/failure_frames_strip.png`](outputs/failure_frames_strip.png)
 
 ---
 
@@ -265,7 +265,7 @@ This confirms that the angular uncocking of the wrists provides an extra $+23.5\
 
 In sports engineering, understanding where and why computer vision algorithms fail is just as critical as highlighting where they succeed. Monocular broadcast footage presents distinct breakdown regimes that must be detected and flagged automatically.
 
-The multi-panel diagnostic strip below captures these exact failure regimes in [`input_video.mp4`](file:///Users/devanshmittal/Desktop/str8bat-takehome/input_video.mp4):
+The multi-panel diagnostic strip below captures these exact failure regimes in [`input_video.mp4`](input_video.mp4):
 
 ![Failure Frames Strip](outputs/failure_frames_strip.png)
 

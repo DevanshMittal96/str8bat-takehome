@@ -4,15 +4,16 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![YOLOv8](https://img.shields.io/badge/Ultralytics-YOLOv8x-00FFFF.svg)](https://github.com/ultralytics/ultralytics)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
 ## 1. Executive Summary & Core Technical Upgrades
 
+> **Full write-up (Parts 1 and 2):** [`report_latex/str8bat_takehome.pdf`](report_latex/str8bat_takehome.pdf)
+
 This repository contains the standalone, production-grade computer vision and biomechanical kinematics pipeline developed for **Part 2** of the **str8bat AI Engineer Technical Take-Home Assignment**.
 
-Given an uncalibrated broadcast video ([`input_video.mp4`](file:///Users/devanshmittal/Desktop/str8bat-takehome/input_video.mp4), 720×1280 @ 29.954 fps, 72 frames) featuring England international cricketer Liam Livingstone, the system extracts high-fidelity biomechanical kinematics, tracks bat-proxy mechanics across swing phases, compensates for background camera ego-motion, and provides automated diagnostic classification of computer vision failure modes.
+Given an uncalibrated broadcast video ([`input_video.mp4`](input_video.mp4), 720×1280 @ 29.954 fps, 72 frames) featuring England international cricketer Liam Livingstone, the system extracts high-fidelity biomechanical kinematics, tracks bat-proxy mechanics across swing phases, compensates for background camera ego-motion, and provides automated diagnostic classification of computer vision failure modes.
 
 ### The 5 Foundational Technical Upgrades
 
@@ -76,8 +77,9 @@ flowchart TD
 The repository requires Python 3.10+ and standard deep learning / computer vision libraries. YOLO weights (`yolov8n.pt`, `yolov8x-pose.pt`) are not committed (see `.gitignore`); Ultralytics downloads them automatically on the first run.
 
 ```bash
-# 1. Clone or navigate to workspace
-cd /Users/devanshmittal/Desktop/str8bat-takehome
+# 1. Clone the repository
+git clone https://github.com/DevanshMittal96/str8bat-takehome.git
+cd str8bat-takehome
 
 # 2. Set up virtual environment
 python3 -m venv venv
@@ -152,17 +154,17 @@ All spatial metrics are scaled using regulation International Cricket Council (I
 
 ## 4. Key Deliverables & Artifact Inventory
 
-All output deliverables are generated and maintained in [`outputs/`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs):
+All output deliverables are generated and maintained in [`outputs/`](outputs):
 
 | File Name | Path | Size | Description |
 | :--- | :--- | :---: | :--- |
-| `camera_metrics.json` | [`outputs/camera_metrics.json`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/camera_metrics.json) | 16.8 KB | Optical flow ego-motion shifts ($dx, dy, v$), duplicate frame flags, and stump calibration metadata. |
-| `swing_kinematics.csv` | [`outputs/swing_kinematics.csv`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/swing_kinematics.csv) | 13.8 KB | Complete 72-frame kinematic dataset: coordinates, confidences, raw vs smoothed velocities, 3D estimates, and flags. |
-| `annotated_swing.mp4` | [`outputs/annotated_swing.mp4`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/annotated_swing.mp4) | 2.6 MB | 720×1280 diagnostic video with live HUD telemetry, skeleton overlays, bat-proxy vector, and 8-frame trails. |
-| `velocity_profile_analysis.png` | [`outputs/velocity_profile_analysis.png`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/velocity_profile_analysis.png) | 1.6 MB | 300 DPI publication figure: 3-panel velocity profiles (px/s & km/h), inter-wrist distance sanity check, and camera ego-motion timeline (F22–71). |
-| `velocity_profile_analysis_full_video.png` | [`outputs/velocity_profile_analysis_full_video.png`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/velocity_profile_analysis_full_video.png) | 1.6 MB | 300 DPI supplementary full sequence figure (F0–71) with clipped pre-shot pan callout. |
-| `failure_frames_strip.png` | [`outputs/failure_frames_strip.png`](file:///Users/devanshmittal/Desktop/str8bat-takehome/outputs/failure_frames_strip.png) | 1.0 MB | 300 DPI multi-panel visual strip with crops illustrating nominal tracking, self-occlusion, pulldown dropout, and crossover drift. |
-| `PART2_REPORT.md` | [`PART2_REPORT.md`](file:///Users/devanshmittal/Desktop/str8bat-takehome/PART2_REPORT.md) | ~27 KB | Comprehensive engineering report with full mathematical derivations and sensor synergy analysis. |
+| `camera_metrics.json` | [`outputs/camera_metrics.json`](outputs/camera_metrics.json) | 16.8 KB | Optical flow ego-motion shifts ($dx, dy, v$), duplicate frame flags, and stump calibration metadata. |
+| `swing_kinematics.csv` | [`outputs/swing_kinematics.csv`](outputs/swing_kinematics.csv) | 13.8 KB | Complete 72-frame kinematic dataset: coordinates, confidences, raw vs smoothed velocities, 3D estimates, and flags. |
+| `annotated_swing.mp4` | [`outputs/annotated_swing.mp4`](outputs/annotated_swing.mp4) | 2.6 MB | 720×1280 diagnostic video with live HUD telemetry, skeleton overlays, bat-proxy vector, and 8-frame trails. |
+| `velocity_profile_analysis.png` | [`outputs/velocity_profile_analysis.png`](outputs/velocity_profile_analysis.png) | 1.6 MB | 300 DPI publication figure: 3-panel velocity profiles (px/s & km/h), inter-wrist distance sanity check, and camera ego-motion timeline (F22–71). |
+| `velocity_profile_analysis_full_video.png` | [`outputs/velocity_profile_analysis_full_video.png`](outputs/velocity_profile_analysis_full_video.png) | 1.6 MB | 300 DPI supplementary full sequence figure (F0–71) with clipped pre-shot pan callout. |
+| `failure_frames_strip.png` | [`outputs/failure_frames_strip.png`](outputs/failure_frames_strip.png) | 1.0 MB | 300 DPI multi-panel visual strip with crops illustrating nominal tracking, self-occlusion, pulldown dropout, and crossover drift. |
+| `PART2_REPORT.md` | [`PART2_REPORT.md`](PART2_REPORT.md) | ~27 KB | Comprehensive engineering report with full mathematical derivations and sensor synergy analysis. |
 
 ---
 
@@ -190,7 +192,7 @@ str8bat-takehome/
 ├── README.md                        # Project overview, 5 upgrades & quickstart
 ├── PART2_REPORT.md                  # In-depth technical engineering report & mathematical derivations
 ├── data/
-│   └── frames/                      # Extracted raw frames with burned index/timestamp overlays
+│   └── frames/                      # Extracted frames (regenerated by run_pipeline.py, not committed)
 ├── outputs/
 │   ├── camera_metrics.json          # Optical flow ego-motion & stump calibration data
 │   ├── swing_kinematics.csv         # Frame-by-frame kinematics dataset (72 rows x 32 cols)
@@ -202,11 +204,12 @@ str8bat-takehome/
 │   ├── camera_motion.py             # Optical flow motion estimator, duplicate detector & calibrator
 │   ├── track_swing.py               # Pose tracker, 2D PCHIP spline engine & bat kinematics
 │   └── plot_velocity.py             # Publication figure generator & failure inspector
-├── yolov8n.pt                       # Lightweight YOLO model for foreground masking
-└── yolov8x-pose.pt                  # Deep keypoint detector (COCO 17-point pose)
+├── report_latex/                    # LaTeX source, figures and compiled PDF write-up
+├── yolov8n.pt                       # YOLO model for foreground masking (auto-downloaded, not committed)
+└── yolov8x-pose.pt                  # COCO 17-point pose model (auto-downloaded, not committed)
 ```
 
-For complete mathematical derivations of optical axis foreshortening, 3D projective transformations, lever-arm physics, and production sensor fusion strategies, see [PART2_REPORT.md](file:///Users/devanshmittal/Desktop/str8bat-takehome/PART2_REPORT.md).
+For complete mathematical derivations of optical axis foreshortening, 3D projective transformations, lever-arm physics, and production sensor fusion strategies, see [PART2_REPORT.md](PART2_REPORT.md).
 
 ---
 
